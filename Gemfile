@@ -1,4 +1,24 @@
-source 'https://rubygems.org'
+source "https://mirrors.tuna.tsinghua.edu.cn/rubygems/"
+
+gem "jekyll"
+
+gem "minima"
+
+group :jekyll_plugins do
+    gem 'jekyll-sitemap'
+    gem 'jekyll-seo-tag'
+    gem "jekyll-feed"
+  end
+
+
 gem 'github-pages', group: :jekyll_plugins
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
+# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library.
+platforms :mingw, :x64_mingw, :mswin, :jruby do
+    gem "tzinfo", "~> 1.2"
+    gem "tzinfo-data"
+  end
+  
+  # Performance-booster for watching directories on Windows
+  gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
